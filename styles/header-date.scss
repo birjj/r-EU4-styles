@@ -1,0 +1,113 @@
+/* top right */
+#header-bottom-right {
+    background: none;
+    padding: 17px 100px 0 42px;
+    z-index: 1;
+    text-align: right;
+    top: 19px;
+}
+#header-bottom-right::before, #header-bottom-right::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#header-bottom-right::before {
+    width: 131px;
+    height: 97px;
+    left: initial;
+    bottom: initial;
+    background-image:
+        url(%%date-timer%%),
+        url(%%date-right%%);
+    background-repeat: no-repeat;
+    background-position:
+        74px 13px,
+        center;
+}
+#header-bottom-right::after {
+    bottom: initial;
+    left: 0;
+    right: 131px;
+    height: 106px;
+    border-image: url(%%date-left%%) 13 0 42 55 fill repeat stretch;
+    border-style: solid;
+    border-width: 13px 0 42px 55px;
+    box-sizing: border-box;
+    z-index: -1;
+}
+#header-bottom-right .user {
+    display: block;
+    margin-bottom: 18px;
+}
+.res-navTop #header-bottom-right .user { margin-bottom: 15px; }
+
+@mixin date-icon($tooltip) {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    overflow: visible;
+
+    &::before {
+        display: none;
+        content: $tooltip;
+        font-size: 12px;
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        z-index: 1;
+        padding: 2px 4px;
+        background: url(%%tileable-bg%%);
+        border-radius: 3px;
+        border: 1px solid #1d2429;
+        box-shadow:
+            0 2px 4px #000,
+            0 0 2px rgba(#000, 0.5);
+        text-indent: initial;
+        white-space: nowrap;
+    }
+
+    &:hover::before { display: block; }
+}
+/* mail icon */
+#header-bottom-right a { color: #fff; }
+#mail, #chat, #modmail { font-size: 0px; }
+#mail {
+    @include date-icon("Inbox");
+    right: 63px;
+    top: 15px;
+    background-image: url(%%date-btn-red-mail%%);
+    background-position: 0px 0px;
+}
+#mail.nohavemail {
+    background-image: url(%%date-btn-mail%%);
+    background-position: 0px;
+}
+#mail + .separator, #mail + .message-count + .separator { display: none; }
+
+/* chat icon */
+#chat {
+    @include date-icon("Chat");
+    right: 54px;
+    top: 47px;
+    background-image: url(%%date-btn-chat%%);
+    background-position: 0px 0px;
+    background-size: 100%;
+}
+#chat + .separator,
+.user + .separator { display: none; }
+
+/* logout icon */
+#header-bottom-right .logout a {
+    @include date-icon("Logout");
+    display: inline-block;
+    font-size: 0px;
+    right: 2px;
+    top: 67px;
+    background-image: url(%%date-btn-logout%%);
+}
+#header-bottom-right > .separator:nth-last-child(2) { display: none; }

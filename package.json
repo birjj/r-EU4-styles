@@ -1,0 +1,16 @@
+{
+  "name": "r-eu4-style",
+  "version": "1.0.0",
+  "description": "Styles for the /r/EU4 subreddit",
+  "main": "style.scss",
+  "author": "birjolaxew",
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/watch.js"
+  },
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "node-sass": "^4.9.3",
+    "snoowrap": "^1.15.2"
+  }
+}

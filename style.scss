@@ -1,0 +1,26 @@
+/**
+ * === HEADER ===
+ */
+@import "styles/header";
+  
+/**
+ * === SIDE BAR ===
+ */
+@import "styles/side";
+
+/* -- BUTTONS -- */
+@import "styles/buttons";
+
+/* -- CHECKBOXES -- */
+@import "styles/checkboxes";
+
+/* -- TITLES -- */
+@import "styles/titles";
+
+/* -- SIDEBAR COMPONENTS -- */
+@import "styles/side-components.scss";
+
+/**
+ * === CONTENT ===
+ */
+@import "styles/content.scss";

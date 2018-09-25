@@ -1,0 +1,104 @@
+@import "./_includes.scss";
+
+/* search */
+#search { padding: 2em 2em 1em; }
+#search input[type=text] {
+    /* TODO: implement game-like search */
+    width: 100%;
+    background: none;
+    border-radius: 5px;
+    border: none;
+    @include highlighted-section;
+}
+#searchexpando { color: #222; }
+
+/* sub buttons */
+.subButtons {
+    text-align: center;
+}
+.res-fancy-toggle-button,
+.fancy-toggle-button .remove.active,
+.fancy-toggle-button .add.active {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    box-sizing: border-box;
+    height: 23px;
+    z-index: 1;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+    }
+    &::after {
+        border-image: url(%%diploaction-green%%) 11 10 fill repeat;
+        border-style: solid;
+        border-width: 11px 10px;
+        z-index: -1;
+    }
+    &::before { display: none; }
+    &:hover::before,
+    &:focus::before {
+        display: block;
+        background: rgba(#fff, 0.05);
+    }
+    &:active::before {
+        display: block;
+        background: rgba(#000, 0.1);
+    }
+}
+.fancy-toggle-button .remove.active::after { border-image-source: url(%%diploaction-red%%); }
+
+/* subscriber counts */
+.subscribers, .users-online {
+    height: 64px;
+    display: block;
+    padding: 14px 96px 0 24px;
+    box-sizing: border-box;
+    background-image: url(%%combat-banner%%);
+    background-position: top right;
+    font-weight: 700;
+    font-size: 13px;
+}
+.users-online {
+    margin-right: 16px;
+    padding-left: 6px;
+
+    & > *,
+    &::before { vertical-align: middle; }
+    &::before {
+        background-image: url(%%online-indicator%%);
+        background-size: 100%;
+        background-position: 0 0;
+        width: 15px;
+        height: 15px;
+        margin-right: 4px;
+        float: none;
+        display: inline-block;
+    }
+    .number::after { content: " World Conquerors"; }
+}
+.subscribers {
+    margin-top: 12px;
+    margin-bottom: -30px;
+
+    .number::after { content: " Map Staring Experts"; }
+}
+.subscribers .word,
+.users-online .word {
+    display: none;
+}
+
+/* flair preview */
+.flairtoggle + .tagline {
+    display: inline-block;
+    padding: 0 8px 5px;
+    margin: 0;
+    border-radius: 3px;
+    align-self: center;
+}

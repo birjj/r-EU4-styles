@@ -1,0 +1,500 @@
+/**
+ * === HEADER ===
+ */
+/* TODO: resize the image in PS instead */
+#header-img {
+  width: 114px;
+  height: 114px; }
+
+#header {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0) 66%, rgba(0, 0, 0, 0.25)) 100% 100%, linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.05) 33%, rgba(255, 255, 255, 0.05) 66%, rgba(255, 255, 255, 0)) 100% 100%, url(%%tileable-bg-big%%);
+  border-image: url(%%gold-border%%) 6 fill repeat;
+  border-style: solid;
+  border-width: 0 0 6px 0; }
+  #header .tabmenu li a {
+    position: relative;
+    box-sizing: border-box;
+    background: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 14px 2px;
+    z-index: 1;
+    margin-right: -10px;
+    vertical-align: bottom;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400; }
+  #header .tabmenu li:not(.res-show-images) a::after,
+  #header .tabmenu li.res-show-images a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    bottom: 0;
+    border-image: url(%%tab%%) 17 20 0 fill repeat stretch;
+    border-style: solid;
+    border-width: 17px 20px 0;
+    z-index: -1; }
+  #header .tabmenu li.selected a {
+    background: none;
+    border: none;
+    padding-bottom: 4px;
+    color: #fff;
+    transform: translateY(2px); }
+    #header .tabmenu li.selected a::after, #header .tabmenu li.selected a::before {
+      border-image-source: url(%%tab-active%%);
+      top: 2px; }
+
+#header-bottom-left {
+  position: relative; }
+
+#header .redditname {
+  font-size: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateY(4px);
+  /* TODO: resize the image in PS instead */
+  width: 320px;
+  height: 90px;
+  background-image: url(%%Eu4-logo%%);
+  background-size: 100% 100%; }
+  #header .redditname a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+/* top right */
+#header-bottom-right {
+  background: none;
+  padding: 17px 100px 0 42px;
+  z-index: 1;
+  text-align: right;
+  top: 19px; }
+
+#header-bottom-right::before, #header-bottom-right::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; }
+
+#header-bottom-right::before {
+  width: 131px;
+  height: 97px;
+  left: initial;
+  bottom: initial;
+  background-image: url(%%date-timer%%), url(%%date-right%%);
+  background-repeat: no-repeat;
+  background-position: 74px 13px, center; }
+
+#header-bottom-right::after {
+  bottom: initial;
+  left: 0;
+  right: 131px;
+  height: 106px;
+  border-image: url(%%date-left%%) 13 0 42 55 fill repeat stretch;
+  border-style: solid;
+  border-width: 13px 0 42px 55px;
+  box-sizing: border-box;
+  z-index: -1; }
+
+#header-bottom-right .user {
+  display: block;
+  margin-bottom: 18px; }
+
+.res-navTop #header-bottom-right .user {
+  margin-bottom: 15px; }
+
+/* mail icon */
+#header-bottom-right a {
+  color: #fff; }
+
+#mail, #chat, #modmail {
+  font-size: 0px; }
+
+#mail {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+  right: 63px;
+  top: 15px;
+  background-image: url(%%date-btn-red-mail%%);
+  background-position: 0px 0px; }
+  #mail::before {
+    display: none;
+    content: "Inbox";
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 2px 4px;
+    background: url(%%tileable-bg%%);
+    border-radius: 3px;
+    border: 1px solid #1d2429;
+    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    text-indent: initial;
+    white-space: nowrap; }
+  #mail:hover::before {
+    display: block; }
+
+#mail.nohavemail {
+  background-image: url(%%date-btn-mail%%);
+  background-position: 0px; }
+
+#mail + .separator, #mail + .message-count + .separator {
+  display: none; }
+
+/* chat icon */
+#chat {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+  right: 54px;
+  top: 47px;
+  background-image: url(%%date-btn-chat%%);
+  background-position: 0px 0px;
+  background-size: 100%; }
+  #chat::before {
+    display: none;
+    content: "Chat";
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 2px 4px;
+    background: url(%%tileable-bg%%);
+    border-radius: 3px;
+    border: 1px solid #1d2429;
+    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    text-indent: initial;
+    white-space: nowrap; }
+  #chat:hover::before {
+    display: block; }
+
+#chat + .separator,
+.user + .separator {
+  display: none; }
+
+/* logout icon */
+#header-bottom-right .logout a {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+  display: inline-block;
+  font-size: 0px;
+  right: 2px;
+  top: 67px;
+  background-image: url(%%date-btn-logout%%); }
+  #header-bottom-right .logout a::before {
+    display: none;
+    content: "Logout";
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 2px 4px;
+    background: url(%%tileable-bg%%);
+    border-radius: 3px;
+    border: 1px solid #1d2429;
+    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    text-indent: initial;
+    white-space: nowrap; }
+  #header-bottom-right .logout a:hover::before {
+    display: block; }
+
+#header-bottom-right > .separator:nth-last-child(2) {
+  display: none; }
+
+/**
+ * === SIDE BAR ===
+ */
+.side {
+  /* The general sidebar - applies blue background, gold border and inner shadow */
+  color: #fff;
+  margin: 0;
+  background-image: url(%%tileable-bg%%);
+  box-shadow: inset 0 0 64px rgba(0, 0, 0, 0.5), inset 0 0 16px black;
+  border-image: url(%%gold-border%%) 6 fill repeat;
+  border-style: solid;
+  border-width: 0 6px 6px; }
+
+.side .spacer:first-child {
+  margin-top: 0; }
+
+.submit-link {
+  margin-bottom: -12px; }
+
+/* various white backgrounds */
+.side form.toggle,
+.leavemoderator {
+  background: none;
+  padding: 5px 1em; }
+
+/* titles */
+.side .redditname {
+  display: none !important; }
+
+.side .titlebox .md blockquote:nth-child(4) h1 {
+  font-size: 24px; }
+
+/* markdown content */
+.titlebox {
+  display: flex;
+  flex-direction: column; }
+
+.side .md blockquote {
+  border: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  color: #ddd; }
+
+.side .md blockquote p {
+  padding: 0 12px; }
+
+.side .md hr {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-left: 12px;
+  margin-right: 12px; }
+
+/* -- BUTTONS -- */
+.morelink, .morelink:hover,
+.disabled .morelink, .disabled .morelink:hover {
+  position: relative;
+  margin: 0 1em;
+  background: none;
+  border: none;
+  height: 58px;
+  z-index: 1; }
+
+.disabled .morelink {
+  opacity: 0.5; }
+
+.morelink a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.3em; }
+
+.morelink a::after {
+  position: initial !important; }
+
+.morelink .nub {
+  display: none; }
+
+.morelink a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 26px 32px 32px;
+  border-image: url(%%frontend-continue-button%%) 26 32 32 repeat;
+  z-index: -1;
+  /* used to make sure that the images are loaded before the interactions begin */
+  background-image: url(%%frontend-continue-button-hovered%%), url(%%frontend-continue-button-clicked%%);
+  background-size: 0px, 0px; }
+
+.morelink:hover a::before,
+.morelink:focus a::before {
+  border-image-source: url(%%frontend-continue-button-hovered%%); }
+
+.morelink:active a::before {
+  border-image-source: url(%%frontend-continue-button-clicked%%); }
+
+/* -- CHECKBOXES -- */
+form.toggle label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+form.toggle label::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5em;
+  background: url(%%checkbox-gold-32%%);
+  background-size: 48px 24px; }
+
+form.toggle input[type="checkbox"] {
+  display: none; }
+
+form.toggle input[type="checkbox"]:checked ~ label::before {
+  background-position: 24px 0; }
+
+/* -- TITLES -- */
+.side h1 {
+  display: flex !important;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  height: 46px;
+  padding: 9px 0 9px;
+  justify-content: center;
+  align-items: center;
+  font-family: serif;
+  color: #fff;
+  font-weight: 200;
+  font-size: 24px;
+  color: #fff !important;
+  z-index: 1; }
+
+.side h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8px;
+  height: 72px;
+  background-image: url(%%province-banner%%);
+  background-position: 50%;
+  z-index: -1; }
+
+.side .redditname::before {
+  content: "Welcome to EU4"; }
+
+.side .redditname a {
+  display: none; }
+
+/* -- SIDEBAR COMPONENTS -- */
+/* search */
+#search {
+  padding: 2em 2em 1em; }
+
+#search input[type=text] {
+  /* TODO: implement game-like search */
+  width: 100%;
+  background: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5); }
+
+#searchexpando {
+  color: #222; }
+
+/* sub buttons */
+.subButtons {
+  text-align: center; }
+
+.res-fancy-toggle-button,
+.fancy-toggle-button .remove.active,
+.fancy-toggle-button .add.active {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  box-sizing: border-box;
+  height: 23px;
+  z-index: 1; }
+  .res-fancy-toggle-button::before, .res-fancy-toggle-button::after,
+  .fancy-toggle-button .remove.active::before,
+  .fancy-toggle-button .remove.active::after,
+  .fancy-toggle-button .add.active::before,
+  .fancy-toggle-button .add.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+  .res-fancy-toggle-button::after,
+  .fancy-toggle-button .remove.active::after,
+  .fancy-toggle-button .add.active::after {
+    border-image: url(%%diploaction-green%%) 11 10 fill repeat;
+    border-style: solid;
+    border-width: 11px 10px;
+    z-index: -1; }
+  .res-fancy-toggle-button::before,
+  .fancy-toggle-button .remove.active::before,
+  .fancy-toggle-button .add.active::before {
+    display: none; }
+  .res-fancy-toggle-button:hover::before, .res-fancy-toggle-button:focus::before,
+  .fancy-toggle-button .remove.active:hover::before,
+  .fancy-toggle-button .remove.active:focus::before,
+  .fancy-toggle-button .add.active:hover::before,
+  .fancy-toggle-button .add.active:focus::before {
+    display: block;
+    background: rgba(255, 255, 255, 0.05); }
+  .res-fancy-toggle-button:active::before,
+  .fancy-toggle-button .remove.active:active::before,
+  .fancy-toggle-button .add.active:active::before {
+    display: block;
+    background: rgba(0, 0, 0, 0.1); }
+
+.fancy-toggle-button .remove.active::after {
+  border-image-source: url(%%diploaction-red%%); }
+
+/* subscriber counts */
+.subscribers, .users-online {
+  height: 64px;
+  display: block;
+  padding: 14px 96px 0 24px;
+  box-sizing: border-box;
+  background-image: url(%%combat-banner%%);
+  background-position: top right;
+  font-weight: 700;
+  font-size: 13px; }
+
+.users-online {
+  margin-right: 16px;
+  padding-left: 6px; }
+  .users-online > *, .users-online::before {
+    vertical-align: middle; }
+  .users-online::before {
+    background-image: url(%%online-indicator%%);
+    background-size: 100%;
+    background-position: 0 0;
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+    float: none;
+    display: inline-block; }
+  .users-online .number::after {
+    content: " World Conquerors"; }
+
+.subscribers {
+  margin-top: 12px;
+  margin-bottom: -30px; }
+  .subscribers .number::after {
+    content: " Map Staring Experts"; }
+
+.subscribers .word,
+.users-online .word {
+  display: none; }
+
+/* flair preview */
+.flairtoggle + .tagline {
+  display: inline-block;
+  padding: 0 8px 5px;
+  margin: 0;
+  border-radius: 3px;
+  align-self: center; }
+
+/**
+ * === CONTENT ===
+ */
+.content {
+  margin: 1em; }

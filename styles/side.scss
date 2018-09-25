@@ -1,0 +1,51 @@
+@import "./_includes.scss";
+
+.side {
+    /* The general sidebar - applies blue background, gold border and inner shadow */
+    color: #fff;
+    margin: 0;
+    background-image: url(%%tileable-bg%%);
+    box-shadow:
+      inset 0 0 64px rgba(0, 0, 0, 0.5),
+      inset 0 0 16px rgba(0, 0, 0, 1);
+    @include gold-border(0 6px 6px);
+}
+.side .spacer:first-child { margin-top: 0; }
+.submit-link { margin-bottom: -12px; }
+
+/* various white backgrounds */
+.side form.toggle,
+.leavemoderator {
+    background: none;
+    padding: 5px 1em;
+}
+
+/* titles */
+.side .redditname { display: none !important; }
+.side .titlebox .md blockquote:nth-child(4) h1 {
+    font-size: 24px;
+}
+
+/* markdown content */
+.titlebox {
+  display: flex;
+  flex-direction: column;
+}
+
+.side .md blockquote {
+  border: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  color: #ddd;
+}
+.side .md blockquote p {
+  padding: 0 12px;
+}
+.side .md hr {
+  height: 1px;
+  background: rgba(#000, 0.3);
+  border-bottom: 1px solid rgba(#fff, 0.15);
+  margin-left: 12px;
+  margin-right: 12px;
+}

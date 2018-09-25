@@ -1,0 +1,37 @@
+.morelink, .morelink:hover,
+.disabled .morelink, .disabled .morelink:hover {
+    position: relative;
+    margin: 0 1em;
+    background: none;
+    border: none;
+    height: 58px;
+    z-index: 1;
+}
+.disabled .morelink { opacity: 0.5; }
+.morelink a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+.morelink a::after { position: initial !important; }
+.morelink .nub { display: none; }
+.morelink a::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    border-style: solid;
+    border-width: 26px 32px 32px;
+    border-image: url(%%frontend-continue-button%%) 26 32 32 repeat;
+    z-index: -1;
+    /* used to make sure that the images are loaded before the interactions begin */
+    background-image: url(%%frontend-continue-button-hovered%%), url(%%frontend-continue-button-clicked%%);
+    background-size: 0px, 0px;
+}
+.morelink:hover a::before,
+.morelink:focus a::before { border-image-source: url(%%frontend-continue-button-hovered%%); }
+.morelink:active a::before { border-image-source: url(%%frontend-continue-button-clicked%%); }
