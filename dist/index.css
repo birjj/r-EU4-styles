@@ -629,7 +629,20 @@ form.toggle label {
   box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5); }
 
 #searchexpando {
-  color: #222; }
+  position: relative;
+  z-index: 1;
+  border: none;
+  color: #eee; }
+  #searchexpando::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    z-index: -1; }
 
 /* login form */
 .login-form-side {

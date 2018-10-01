@@ -11,7 +11,22 @@
     border: none;
     @include highlighted-section;
 }
-#searchexpando { color: #222; }
+#searchexpando {
+    position: relative;
+    z-index: 1;
+    border: none;
+    color: #eee;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        z-index: -1;
+    }
+}
 
 /* login form */
 .login-form-side {
