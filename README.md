@@ -8,6 +8,10 @@ Clone the repo, make sure you have Node installed, run `npm start`, edit `secret
 
 In order for images to work you must manually upload the images in `resources` to the subreddit (under Moderator tools > Edit subreddit style) - the images in `resources/unused` can be ignored.
 
+### TODO:
+
+- Join all images that are used as background images into a spritesheet
+
 ## Preview
 
 <p align="center"><img src="preview.png" /></p>
