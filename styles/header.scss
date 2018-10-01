@@ -8,23 +8,23 @@
 
 #header {
     background:
-        linear-gradient(
-            90deg,
-            rgba(#000, 0.25),
-            rgba(#000, 0) 33%,
-            rgba(#000, 0) 66%,
-            rgba(#000, 0.25)
-        ) 100% 100%,
-        linear-gradient(
-            90deg,
-            rgba(#fff, 0),
-            rgba(#fff, 0.05) 33%,
-            rgba(#fff, 0.05) 66%,
-            rgba(#fff, 0)
-        ) 100% 100%,
-        url(%%tileable-bg-big%%);
+    linear-gradient(
+    90deg,
+    rgba(#000, 0.25),
+    rgba(#000, 0) 33%,
+    rgba(#000, 0) 66%,
+    rgba(#000, 0.25)
+    ) 100% 100%,
+    linear-gradient(
+    90deg,
+    rgba(#fff, 0),
+    rgba(#fff, 0.05) 33%,
+    rgba(#fff, 0.05) 66%,
+    rgba(#fff, 0)
+    ) 100% 100%,
+    url(%%tileable-bg-big%%);
     @include gold-border(0 0 6px 0);
-
+    
     .tabmenu li a {
         position: relative;
         box-sizing: border-box;
@@ -56,7 +56,7 @@
         padding-bottom: 4px;
         color: #fff;
         transform: translateY(2px);
-
+        
         &::after, &::before {
             border-image-source: url(%%tab-active%%);
             top: 2px;
@@ -76,7 +76,7 @@
     height: 180px * 0.5;
     background-image: url(%%Eu4-logo%%);
     background-size: 100% 100%;
-
+    
     a {
         display: block;
         width: 100%;

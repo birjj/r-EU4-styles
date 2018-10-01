@@ -1,19 +1,23 @@
-form.toggle label {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+form.toggle,
+#remember-me {
+    label {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5em;
+            background: url(%%checkbox-gold-32%%);
+            background-size: 48px 24px;
+        }
+    }
+    
+    input[type="checkbox"] { display: none; }
+    input[type="checkbox"]:checked ~ label::before {
+        background-position: 24px 0;
+    }
 }
-form.toggle label::before {
-    content: "";
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    margin-right: 0.5em;
-    background: url(%%checkbox-gold-32%%);
-    background-size: 48px 24px;
-}
-form.toggle input[type="checkbox"] { display: none; }
-form.toggle input[type="checkbox"]:checked ~ label::before {
-    background-position: 24px 0;
-}
+form.toggle label { width: 100%; }

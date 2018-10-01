@@ -1,0 +1,8 @@
+.side .md>blockquote:nth-of-type(n+4):not(:hover)>* {
+    display: none;
+}
+
+.side .md blockquote:nth-of-type(n+4):not(:hover) {
+    padding-bottom: 0;
+    margin-bottom: -6px;
+}

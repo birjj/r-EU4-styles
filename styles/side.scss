@@ -6,8 +6,8 @@
     margin: 0;
     background-image: url(%%tileable-bg%%);
     box-shadow:
-      inset 0 0 64px rgba(0, 0, 0, 0.5),
-      inset 0 0 16px rgba(0, 0, 0, 1);
+    inset 0 0 64px rgba(0, 0, 0, 0.5),
+    inset 0 0 16px rgba(0, 0, 0, 1);
     @include gold-border(0 6px 6px);
 }
 .side .spacer:first-child { margin-top: 0; }
@@ -28,24 +28,50 @@
 
 /* markdown content */
 .titlebox {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .side .md blockquote {
-  border: none;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
-  color: #ddd;
+    border: none;
+    margin: 0;
+    padding: 0.4em 0;
+    color: #ddd;
 }
 .side .md blockquote p {
-  padding: 0 12px;
+    padding: 0 12px;
 }
+.side .md h3 { margin: 0; }
 .side .md hr {
-  height: 1px;
-  background: rgba(#000, 0.3);
-  border-bottom: 1px solid rgba(#fff, 0.15);
-  margin-left: 12px;
-  margin-right: 12px;
+    height: 1px;
+    background: rgba(#000, 0.3);
+    border-bottom: 1px solid rgba(#fff, 0.15);
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.side a {
+    color: #bcb042;
+    text-shadow: 0 1px 2px rgba(#000, 0.5);
+}
+.side .md ul { padding-right: 1em; }
+.side pre {
+    @include highlighted-section();
+    margin: 0 1em;
+    padding: 4px 6px;
+    background: none;
+    border: none;
+}
+.side .md ul pre {
+    margin: 0;
+}
+
+/* minor stuff */
+.titlebox .bottom { padding: 2px 6px; }
+.sidecontentbox a.helplink { margin: 4px 6px 6px; }
+.sidebox .spacer {
+    display: none;
+}
+.sidecontentbox .content,
+.login-form-side {
+    border: none;
 }

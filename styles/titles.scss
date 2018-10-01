@@ -23,6 +23,7 @@
     background-image: url(%%province-banner%%);
     background-position: 50%;
     z-index: -1;
+    pointer-events: none;
 }
 .side .redditname::before { content: "Welcome to EU4"; }
 .side .redditname a { display: none; }

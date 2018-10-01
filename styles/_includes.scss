@@ -9,3 +9,36 @@
         0 0 16px 0 rgba(#fff, 0.2),
         inset 0 0 24px rgba(#000, 0.5);
 }
+
+@mixin tooltip($content) {
+    /** ::before is background, ::after is content */
+    &::before,
+    &::after {
+        display: none;
+        content: $content;
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none;
+    }
+    &::before { /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0;
+    }
+    &::after { /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(#000, 0.5);
+    }
+
+    /* display when hovering */
+    &:hover::before,
+    &:hover::after { display: block; }
+}

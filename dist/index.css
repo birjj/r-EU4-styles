@@ -91,23 +91,58 @@
   background-repeat: no-repeat;
   background-position: 74px 13px, center; }
 
-#header-bottom-right::after {
-  bottom: initial;
-  left: 0;
-  right: 131px;
-  height: 106px;
-  border-image: url(%%date-left%%) 13 0 42 55 fill repeat stretch;
-  border-style: solid;
-  border-width: 13px 0 42px 55px;
-  box-sizing: border-box;
-  z-index: -1; }
-
 #header-bottom-right .user {
+  position: relative;
   display: block;
-  margin-bottom: 18px; }
+  margin-bottom: 15px;
+  height: 16px;
+  line-height: 16px; }
+  #header-bottom-right .user::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    right: 31px;
+    bottom: -11px;
+    left: -36px;
+    border-style: solid;
+    border-width: 16px 0 11px 36px;
+    border-image: url(%%date-left-top%%) 16 0 11 36 fill repeat stretch;
+    z-index: -1; }
 
 .res-navTop #header-bottom-right .user {
   margin-bottom: 15px; }
+
+#header-bottom-right .flat-list {
+  /* preferences */
+  position: relative; }
+  #header-bottom-right .flat-list::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 0px;
+    bottom: -46px;
+    left: -36px;
+    border-style: solid;
+    border-width: 8px 0 46px 42px;
+    border-image: url(%%date-left-bot%%) 8 0 46 42 fill repeat stretch;
+    z-index: -1; }
+
+#header-bottom-right .flat-list ~ *:not(.logout) {
+  /* everything after preferences */
+  position: relative; }
+  #header-bottom-right .flat-list ~ *:not(.logout)::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 0;
+    bottom: -46px;
+    left: 0;
+    border-style: solid;
+    border-width: 8px 0 46px 0;
+    border-image: url(%%date-left-bot%%) 8 0 46 0 fill repeat;
+    z-index: -1; }
+  #header-bottom-right .flat-list ~ *:not(.logout)#openRESPrefs::before {
+    bottom: -44px; }
 
 /* mail icon */
 #header-bottom-right a {
@@ -116,33 +151,48 @@
 #mail, #chat, #modmail {
   font-size: 0px; }
 
-#mail {
+#mail, #mail.havemail {
   position: absolute;
   width: 25px;
   height: 25px;
   overflow: visible;
+  /** ::before is background, ::after is content */
+  /* display when hovering */
+  /** place them to the left */
   right: 63px;
   top: 15px;
   background-image: url(%%date-btn-red-mail%%);
   background-position: 0px 0px; }
-  #mail::before {
+  #mail::before, #mail::after, #mail.havemail::before, #mail.havemail::after {
     display: none;
     content: "Inbox";
     font-size: 12px;
+    color: #fff;
     position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    z-index: 1;
-    padding: 2px 4px;
-    background: url(%%tileable-bg%%);
-    border-radius: 3px;
-    border: 1px solid #1d2429;
-    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
     text-indent: initial;
-    white-space: nowrap; }
-  #mail:hover::before {
+    white-space: nowrap;
+    z-index: 999;
+    pointer-events: none; }
+  #mail::before, #mail.havemail::before {
+    /* background */
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    color: transparent;
+    line-height: 0; }
+  #mail::after, #mail.havemail::after {
+    /* content */
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  #mail:hover::before, #mail:hover::after, #mail.havemail:hover::before, #mail.havemail:hover::after {
     display: block; }
+  #mail::before, #mail::after, #mail.havemail::before, #mail.havemail::after {
+    left: initial;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%); }
 
 #mail.nohavemail {
   background-image: url(%%date-btn-mail%%);
@@ -151,37 +201,110 @@
 #mail + .separator, #mail + .message-count + .separator {
   display: none; }
 
-/* chat icon */
+#header-bottom-right #mail + .message-count {
+  position: absolute;
+  right: 60px;
+  top: 26px;
+  background: #a01917;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+/* chat icon, replaced by modmail for mods */
 #chat {
   position: absolute;
   width: 25px;
   height: 25px;
   overflow: visible;
-  right: 54px;
-  top: 47px;
+  /** ::before is background, ::after is content */
+  /* display when hovering */
+  /** place them to the left */
+  right: 53px;
+  top: 42px;
   background-image: url(%%date-btn-chat%%);
   background-position: 0px 0px;
-  background-size: 100%; }
-  #chat::before {
+  background-size: 100%;
+  margin: 0; }
+  #chat::before, #chat::after {
     display: none;
     content: "Chat";
     font-size: 12px;
+    color: #fff;
     position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    z-index: 1;
-    padding: 2px 4px;
-    background: url(%%tileable-bg%%);
-    border-radius: 3px;
-    border: 1px solid #1d2429;
-    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
     text-indent: initial;
-    white-space: nowrap; }
-  #chat:hover::before {
+    white-space: nowrap;
+    z-index: 999;
+    pointer-events: none; }
+  #chat::before {
+    /* background */
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    color: transparent;
+    line-height: 0; }
+  #chat::after {
+    /* content */
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  #chat:hover::before, #chat:hover::after {
     display: block; }
+  #chat::before, #chat::after {
+    left: initial;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%); }
+
+#modmail.havemail, #modmail.nohavemail {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+  /** ::before is background, ::after is content */
+  /* display when hovering */
+  /** place them to the left */
+  right: 30px;
+  top: 60px;
+  background-image: url(%%date-btn-chat%%);
+  background-position: 0px 0px;
+  background-size: 100%;
+  margin: 0; }
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
+    display: none;
+    content: "Modmail";
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-indent: initial;
+    white-space: nowrap;
+    z-index: 999;
+    pointer-events: none; }
+  #modmail.havemail::before, #modmail.nohavemail::before {
+    /* background */
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    color: transparent;
+    line-height: 0; }
+  #modmail.havemail::after, #modmail.nohavemail::after {
+    /* content */
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  #modmail.havemail:hover::before, #modmail.havemail:hover::after, #modmail.nohavemail:hover::before, #modmail.nohavemail:hover::after {
+    display: block; }
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
+    left: initial;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%); }
+
+#modmail.havemail {
+  background-image: url(%%date-btn-red-chat%%); }
 
 #chat + .separator,
+#modmail + .separator,
 .user + .separator {
   display: none; }
 
@@ -191,32 +314,50 @@
   width: 25px;
   height: 25px;
   overflow: visible;
+  /** ::before is background, ::after is content */
+  /* display when hovering */
+  /** place them to the left */
   display: inline-block;
   font-size: 0px;
   right: 2px;
   top: 67px;
   background-image: url(%%date-btn-logout%%); }
-  #header-bottom-right .logout a::before {
+  #header-bottom-right .logout a::before, #header-bottom-right .logout a::after {
     display: none;
     content: "Logout";
     font-size: 12px;
+    color: #fff;
     position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    z-index: 1;
-    padding: 2px 4px;
-    background: url(%%tileable-bg%%);
-    border-radius: 3px;
-    border: 1px solid #1d2429;
-    box-shadow: 0 2px 4px #000, 0 0 2px rgba(0, 0, 0, 0.5);
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
     text-indent: initial;
-    white-space: nowrap; }
-  #header-bottom-right .logout a:hover::before {
+    white-space: nowrap;
+    z-index: 999;
+    pointer-events: none; }
+  #header-bottom-right .logout a::before {
+    /* background */
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    color: transparent;
+    line-height: 0; }
+  #header-bottom-right .logout a::after {
+    /* content */
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  #header-bottom-right .logout a:hover::before, #header-bottom-right .logout a:hover::after {
     display: block; }
+  #header-bottom-right .logout a::before, #header-bottom-right .logout a::after {
+    left: initial;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%); }
 
 #header-bottom-right > .separator:nth-last-child(2) {
   display: none; }
+
+#header-bottom-right > #openRESPrefs:last-child {
+  margin-left: 1em; }
 
 /**
  * === SIDE BAR ===
@@ -257,13 +398,15 @@
 
 .side .md blockquote {
   border: none;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
+  margin: 0;
+  padding: 0.4em 0;
   color: #ddd; }
 
 .side .md blockquote p {
   padding: 0 12px; }
+
+.side .md h3 {
+  margin: 0; }
 
 .side .md hr {
   height: 1px;
@@ -271,6 +414,45 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   margin-left: 12px;
   margin-right: 12px; }
+
+.side a {
+  color: #bcb042;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+.side .md ul {
+  padding-right: 1em; }
+
+.side pre {
+  box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5);
+  margin: 0 1em;
+  padding: 4px 6px;
+  background: none;
+  border: none; }
+
+.side .md ul pre {
+  margin: 0; }
+
+/* minor stuff */
+.titlebox .bottom {
+  padding: 2px 6px; }
+
+.sidecontentbox a.helplink {
+  margin: 4px 6px 6px; }
+
+.sidebox .spacer {
+  display: none; }
+
+.sidecontentbox .content,
+.login-form-side {
+  border: none; }
+
+/* -- EXPANDING -- */
+.side .md > blockquote:nth-of-type(n+4):not(:hover) > * {
+  display: none; }
+
+.side .md blockquote:nth-of-type(n+4):not(:hover) {
+  padding-bottom: 0;
+  margin-bottom: -6px; }
 
 /* -- BUTTONS -- */
 .morelink, .morelink:hover,
@@ -323,26 +505,31 @@
   border-image-source: url(%%frontend-continue-button-clicked%%); }
 
 /* -- CHECKBOXES -- */
-form.toggle label {
-  width: 100%;
-  display: flex;
+form.toggle label,
+#remember-me label {
+  display: inline-flex;
   justify-content: center;
   align-items: center; }
+  form.toggle label::before,
+  #remember-me label::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5em;
+    background: url(%%checkbox-gold-32%%);
+    background-size: 48px 24px; }
 
-form.toggle label::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5em;
-  background: url(%%checkbox-gold-32%%);
-  background-size: 48px 24px; }
-
-form.toggle input[type="checkbox"] {
+form.toggle input[type="checkbox"],
+#remember-me input[type="checkbox"] {
   display: none; }
 
-form.toggle input[type="checkbox"]:checked ~ label::before {
+form.toggle input[type="checkbox"]:checked ~ label::before,
+#remember-me input[type="checkbox"]:checked ~ label::before {
   background-position: 24px 0; }
+
+form.toggle label {
+  width: 100%; }
 
 /* -- TITLES -- */
 .side h1 {
@@ -370,7 +557,8 @@ form.toggle input[type="checkbox"]:checked ~ label::before {
   height: 72px;
   background-image: url(%%province-banner%%);
   background-position: 50%;
-  z-index: -1; }
+  z-index: -1;
+  pointer-events: none; }
 
 .side .redditname::before {
   content: "Welcome to EU4"; }
@@ -379,6 +567,55 @@ form.toggle input[type="checkbox"]:checked ~ label::before {
   display: none; }
 
 /* -- SIDEBAR COMPONENTS -- */
+.morelink, .morelink:hover,
+.disabled .morelink, .disabled .morelink:hover {
+  position: relative;
+  margin: 0 1em;
+  background: none;
+  border: none;
+  height: 58px;
+  z-index: 1; }
+
+.disabled .morelink {
+  opacity: 0.5; }
+
+.morelink a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.3em; }
+
+.morelink a::after {
+  position: initial !important; }
+
+.morelink .nub {
+  display: none; }
+
+.morelink a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 26px 32px 32px;
+  border-image: url(%%frontend-continue-button%%) 26 32 32 repeat;
+  z-index: -1;
+  /* used to make sure that the images are loaded before the interactions begin */
+  background-image: url(%%frontend-continue-button-hovered%%), url(%%frontend-continue-button-clicked%%);
+  background-size: 0px, 0px; }
+
+.morelink:hover a::before,
+.morelink:focus a::before {
+  border-image-source: url(%%frontend-continue-button-hovered%%); }
+
+.morelink:active a::before {
+  border-image-source: url(%%frontend-continue-button-clicked%%); }
+
 /* search */
 #search {
   padding: 2em 2em 1em; }
@@ -394,9 +631,54 @@ form.toggle input[type="checkbox"]:checked ~ label::before {
 #searchexpando {
   color: #222; }
 
+/* login form */
+.login-form-side {
+  border: none;
+  padding: 0 1em; }
+  .login-form-side input[type=text],
+  .login-form-side input[type=password] {
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    width: 135px;
+    box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5); }
+  .login-form-side .g-recaptcha:empty {
+    margin-top: 0; }
+  .login-form-side .submit button {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 6px 14px;
+    color: #fff;
+    z-index: 1; }
+    .login-form-side .submit button::before, .login-form-side .submit button::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0; }
+    .login-form-side .submit button::after {
+      border-image: url(%%diploaction-green%%) 11 10 fill repeat;
+      border-style: solid;
+      border-width: 11px 10px;
+      z-index: -1; }
+    .login-form-side .submit button::before {
+      display: none; }
+    .login-form-side .submit button:hover::before, .login-form-side .submit button:focus::before {
+      display: block;
+      background: rgba(255, 255, 255, 0.05); }
+    .login-form-side .submit button:active::before {
+      display: block;
+      background: rgba(0, 0, 0, 0.1); }
+
 /* sub buttons */
-.subButtons {
+.subButtons, .fancy-toggle-button {
   text-align: center; }
+
+.subButtons .fancy-toggle-button {
+  text-align: initial; }
 
 .res-fancy-toggle-button,
 .fancy-toggle-button .remove.active,
@@ -493,8 +775,250 @@ form.toggle input[type="checkbox"]:checked ~ label::before {
   border-radius: 3px;
   align-self: center; }
 
+/* -- SIDEBAR LINKS -- */
+.side {
+  position: relative; }
+
+.side .md blockquote:nth-child(2) {
+  position: absolute;
+  bottom: 100%;
+  z-index: 99; }
+  .side .md blockquote:nth-child(2) a {
+    /** ::before is background, ::after is content */
+    /* display when hovering */
+    display: inline-block;
+    width: 40px;
+    height: 36px;
+    background-image: url(%%icon-twitch%%), url(%%tab-big%%);
+    font-size: 0px;
+    background-size: 22px, 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center 10px, center;
+    position: relative;
+    margin-right: -6px; }
+    .side .md blockquote:nth-child(2) a::before, .side .md blockquote:nth-child(2) a::after {
+      display: none;
+      content: "Livestreams";
+      font-size: 12px;
+      color: #fff;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-indent: initial;
+      white-space: nowrap;
+      z-index: 999;
+      pointer-events: none; }
+    .side .md blockquote:nth-child(2) a::before {
+      /* background */
+      border: 16px solid transparent;
+      border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+      color: transparent;
+      line-height: 0; }
+    .side .md blockquote:nth-child(2) a::after {
+      /* content */
+      padding: 8px 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+    .side .md blockquote:nth-child(2) a:hover::before, .side .md blockquote:nth-child(2) a:hover::after {
+      display: block; }
+    .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"] {
+      /** ::before is background, ::after is content */
+      /* display when hovering */
+      background-image: url(%%icon-paradoxreddit%%), url(%%tab-big%%); }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::after {
+        display: none;
+        content: "/r/Paradoxplaza";
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none; }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::before {
+        /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0; }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::after {
+        /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]:hover::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]:hover::after {
+        display: block; }
+    .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"] {
+      /** ::before is background, ::after is content */
+      /* display when hovering */
+      background-image: url(%%icon-wiki%%), url(%%tab-big%%); }
+      .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::before, .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::after {
+        display: none;
+        content: "EU4 Wiki";
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none; }
+      .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::before {
+        /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0; }
+      .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::after {
+        /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+      .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]:hover::before, .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]:hover::after {
+        display: block; }
+    .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"] {
+      /** ::before is background, ::after is content */
+      /* display when hovering */
+      background-image: url(%%icon-forum%%), url(%%tab-big%%); }
+      .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::before, .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::after {
+        display: none;
+        content: "Paradox Forums";
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none; }
+      .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::before {
+        /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0; }
+      .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::after {
+        /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+      .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]:hover::before, .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]:hover::after {
+        display: block; }
+    .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"] {
+      /** ::before is background, ::after is content */
+      /* display when hovering */
+      background-image: url(%%icon-teamspeak%%), url(%%tab-big%%); }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::after {
+        display: none;
+        content: "Teamspeak";
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none; }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::before {
+        /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0; }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::after {
+        /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]:hover::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]:hover::after {
+        display: block; }
+    .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"] {
+      /** ::before is background, ::after is content */
+      /* display when hovering */
+      background-image: url(%%icon-discord%%), url(%%tab-big%%); }
+      .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::before, .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::after {
+        display: none;
+        content: "Discord";
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-indent: initial;
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none; }
+      .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::before {
+        /* background */
+        border: 16px solid transparent;
+        border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+        color: transparent;
+        line-height: 0; }
+      .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::after {
+        /* content */
+        padding: 8px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+      .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]:hover::before, .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]:hover::after {
+        display: block; }
+
 /**
  * === CONTENT ===
  */
 .content {
   margin: 1em; }
+
+/* -- SPOILERS -- */
+a[href="#s"], a[href="#spoiler"] {
+  display: inline-block;
+  background: black !important;
+  color: white !important;
+  cursor: default;
+  padding: 1px 2px; }
+
+a[href="#s"]::after, a[href="#spoiler"]::after {
+  content: attr(title);
+  background: black !important;
+  color: black !important;
+  visibility: visible;
+  padding: 0px 8px; }
+
+a[href="#s"]:hover, a[href="#spoiler"]:hover {
+  color: darkorange !important;
+  cursor: default; }
+
+a[href="#s"]:hover::after, a[href="#s"]:active::after, a[href="#spoiler"]:hover::after, a[href="#spoiler"]:active::after {
+  color: white !important; }
+
+a[href$="/spoiler"] {
+  background: #000 !important;
+  color: #000 !important;
+  border: 1px solid black;
+  padding-right: 1px; }
+
+a[href$="/spoiler"]:hover {
+  color: #FFF !important; }
+
+a[href$="/spoiler"]::before {
+  background: #FFF !important;
+  color: #000 !important;
+  padding: 0px 1px;
+  margin: 0px;
+  margin-right: 1px; }
+
+a[href$="/spoiler"]::before {
+  content: "Spoiler"; }
+
+a[href$="/spoiler"][title]::before {
+  content: attr(title) " Spoiler"; }
+
+/**
+ * === ADMIN TOOLS ===
+ */
+.side .icon-menu a {
+  background: none; }

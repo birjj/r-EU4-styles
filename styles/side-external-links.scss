@@ -1,0 +1,46 @@
+@import "./_includes.scss";
+
+.side {
+    position: relative;
+}
+
+.side .md blockquote:nth-child(2) {
+    position: absolute;
+    bottom: 100%;
+    z-index: 99;
+    
+    a {
+        @include tooltip("Livestreams");
+        display: inline-block;
+        width: 40px;
+        height: 36px;
+        background-image: url(%%icon-twitch%%), url(%%tab-big%%);
+        font-size: 0px;
+        background-size: 22px, 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center 10px, center;
+        position: relative;
+        margin-right: -6px;
+        
+        &[href="/r/paradoxplaza"] {
+            @include tooltip("/r/Paradoxplaza");
+            background-image: url(%%icon-paradoxreddit%%), url(%%tab-big%%);
+        }
+        &[href="http://www.eu4wiki.com/"] {
+            @include tooltip("EU4 Wiki");
+            background-image: url(%%icon-wiki%%), url(%%tab-big%%);
+        }
+        &[href^="https://forum.paradoxplaza.com/forum/"] {
+            @include tooltip("Paradox Forums");
+            background-image: url(%%icon-forum%%), url(%%tab-big%%);
+        }
+        &[href="/r/paradoxplaza/wiki/teamspeak"] {
+            @include tooltip("Teamspeak");
+            background-image: url(%%icon-teamspeak%%), url(%%tab-big%%);
+        }
+        &[href^="http://www.discord.gg/"] {
+            @include tooltip("Discord");
+            background-image: url(%%icon-discord%%), url(%%tab-big%%);
+        }
+    }
+}
