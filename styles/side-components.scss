@@ -154,3 +154,18 @@
     border-radius: 3px;
     align-self: center;
 }
+
+/* link info */
+.linkinfo {
+    background: none;
+    padding: 5px 2em;
+    border: none;
+}
+.linkinfo .shortlink input {
+    @include highlighted-section;
+    background: rgba(#222,0.25);
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+}

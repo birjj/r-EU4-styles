@@ -775,6 +775,20 @@ form.toggle label {
   border-radius: 3px;
   align-self: center; }
 
+/* link info */
+.linkinfo {
+  background: none;
+  padding: 5px 2em;
+  border: none; }
+
+.linkinfo .shortlink input {
+  box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5);
+  background: rgba(34, 34, 34, 0.25);
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px; }
+
 /* -- SIDEBAR LINKS -- */
 .side {
   position: relative; }
