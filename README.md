@@ -1,6 +1,6 @@
 # /r/EU4 styles
 
-These styles were created for the EU4 subreddit - I have no official affiliation with the subreddit other than stumbling upon posts from it on /r/all.
+These styles were created for the EU4 subreddit - I have no official affiliation with the subreddit other than stumbling upon posts from it on /r/all. The design is based on [this mockup](https://www.reddit.com/r/eu4/comments/8qvlhp/i_got_bored_so_i_decided_to_make_the_subreddits/e0nhmno/) by /u/mrchooch.
 
 ## Development
 
