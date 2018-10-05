@@ -695,6 +695,7 @@ form.toggle label {
   background: none;
   border-radius: 5px;
   border: none;
+  color: #fff;
   box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.2), inset 0 0 24px rgba(0, 0, 0, 0.5); }
 
 #searchexpando {
