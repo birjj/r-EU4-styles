@@ -1225,7 +1225,7 @@ body.res-nightmode .flair-meneth {
   background: rgba(0, 0, 0, 0.5);
   transform: none;
   transition: none;
-  animation: easter-egg 10s both; }
+  animation: easter-egg 3s both; }
   #baconBit::before, #baconBit.makeitrain::before {
     content: "";
     background-image: url(%%comet-event%%);
