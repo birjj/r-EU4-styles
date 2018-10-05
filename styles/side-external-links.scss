@@ -18,7 +18,7 @@
         position: relative;
         margin-right: -6px;
         
-        &[href="/r/paradoxplaza"] {
+        &[href*="/r/paradoxplaza"] {
             @include tooltip("/r/Paradoxplaza");
             @include sprite("tab_paradoxreddit");
         }

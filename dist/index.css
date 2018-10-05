@@ -917,14 +917,14 @@ form.toggle label {
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
     .side .md blockquote:nth-child(2) a:hover::before, .side .md blockquote:nth-child(2) a:hover::after {
       display: block; }
-    .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"] {
+    .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
       background-image: url(%%spritesheet%%);
       background-position: -270px -370px;
       width: 40px;
       height: 36px; }
-      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::after {
+      .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]::before, .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]::after {
         display: none;
         content: "/r/Paradoxplaza";
         font-size: 12px;
@@ -937,17 +937,17 @@ form.toggle label {
         white-space: nowrap;
         z-index: 999;
         pointer-events: none; }
-      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::before {
+      .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]::before {
         /* background */
         border: 16px solid transparent;
         border-image: url(%%tooltip-border%%) 16 16 fill repeat;
         color: transparent;
         line-height: 0; }
-      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::after {
+      .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]::after {
         /* content */
         padding: 8px 16px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
-      .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]:hover::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]:hover::after {
+      .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]:hover::before, .side .md blockquote:nth-child(2) a[href*="/r/paradoxplaza"]:hover::after {
         display: block; }
     .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"] {
       /** ::before is background, ::after is content */
