@@ -32,9 +32,9 @@
     &::before {
         content: "";
         position: absolute;
-        top: -16px;
+        top: -15px;
         right: 31px;
-        bottom: -11px;
+        bottom: -12px;
         left: -36px;
         border-style: solid;
         border-width: 16px 0 11px 36px;
@@ -43,14 +43,15 @@
     }
 }
 .res-navTop #header-bottom-right .user { margin-bottom: 15px; }
-#header-bottom-right .flat-list /* preferences */ { /* bottom left */
+$firstBottomSelector: "#header-bottom-right .user + *:not(.separator)," ;
+#header-bottom-right .flat-list { /* bottom left */
     position: relative;
     &::before {
         content: "";
         position: absolute;
-        top: -8px;
+        top: -7px;
         right: 0px;
-        bottom: -46px;
+        bottom: -47px;
         left: -36px;
         border-style: solid;
         border-width: 8px 0 46px 42px;
@@ -63,9 +64,9 @@
     &::before {
         content: "";
         position: absolute;
-        top: -8px;
+        top: -7px;
         right: 0;
-        bottom: -46px;
+        bottom: -47px;
         left: 0;
         border-style: solid;
         border-width: 8px 0 46px 0;
@@ -73,7 +74,7 @@
         z-index: -1;
     }
     &#openRESPrefs::before {
-        bottom: -44px;
+        bottom: -45px;
     }
 }
 
@@ -94,7 +95,7 @@
 }
 /* mail icon */
 #header-bottom-right a { color: #fff; }
-#mail, #chat, #modmail { font-size: 0px; background-size: initial; }
+#mail, #chat, #modmail, #new_modmail { font-size: 0px; background-size: initial; }
 #mail, #mail.havemail {
     @include date-icon("Inbox");
     @include sprite("btn_inbox_red");
@@ -122,18 +123,19 @@
     top: 42px;
     margin: 0;
 }
-#modmail.havemail, #modmail.nohavemail {
+#modmail.havemail, #modmail.nohavemail, #new_modmail.havemail, #new_modmail.nohavemail {
     @include date-icon("Modmail");
     @include sprite("btn_chat");
     right: 30px;
     top: 60px;
     margin: 0;
 }
-#modmail.havemail {
+#modmail.havemail, #new_modmail.havemail {
     @include sprite("btn_chat_red");
 }
 #chat + .separator,
 #modmail + .separator,
+#new_modmail + .separator,
 .user + .separator { display: none; }
 
 /* logout icon */

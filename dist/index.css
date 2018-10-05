@@ -100,9 +100,9 @@
   #header-bottom-right .user::before {
     content: "";
     position: absolute;
-    top: -16px;
+    top: -15px;
     right: 31px;
-    bottom: -11px;
+    bottom: -12px;
     left: -36px;
     border-style: solid;
     border-width: 16px 0 11px 36px;
@@ -118,9 +118,9 @@
   #header-bottom-right .flat-list::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -7px;
     right: 0px;
-    bottom: -46px;
+    bottom: -47px;
     left: -36px;
     border-style: solid;
     border-width: 8px 0 46px 42px;
@@ -133,22 +133,22 @@
   #header-bottom-right .flat-list ~ *:not(.logout)::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -7px;
     right: 0;
-    bottom: -46px;
+    bottom: -47px;
     left: 0;
     border-style: solid;
     border-width: 8px 0 46px 0;
     border-image: url(%%date-left-bot%%) 8 0 46 0 fill repeat;
     z-index: -1; }
   #header-bottom-right .flat-list ~ *:not(.logout)#openRESPrefs::before {
-    bottom: -44px; }
+    bottom: -45px; }
 
 /* mail icon */
 #header-bottom-right a {
   color: #fff; }
 
-#mail, #chat, #modmail {
+#mail, #chat, #modmail, #new_modmail {
   font-size: 0px;
   background-size: initial; }
 
@@ -257,7 +257,7 @@
     right: 110%;
     transform: translateY(-50%); }
 
-#modmail.havemail, #modmail.nohavemail {
+#modmail.havemail, #modmail.nohavemail, #new_modmail.havemail, #new_modmail.nohavemail {
   position: absolute;
   overflow: visible;
   /** ::before is background, ::after is content */
@@ -270,7 +270,7 @@
   right: 30px;
   top: 60px;
   margin: 0; }
-  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after, #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
     display: none;
     content: "Modmail";
     font-size: 12px;
@@ -283,25 +283,25 @@
     white-space: nowrap;
     z-index: 999;
     pointer-events: none; }
-  #modmail.havemail::before, #modmail.nohavemail::before {
+  #modmail.havemail::before, #modmail.nohavemail::before, #new_modmail.havemail::before, #new_modmail.nohavemail::before {
     /* background */
     border: 16px solid transparent;
     border-image: url(%%tooltip-border%%) 16 16 fill repeat;
     color: transparent;
     line-height: 0; }
-  #modmail.havemail::after, #modmail.nohavemail::after {
+  #modmail.havemail::after, #modmail.nohavemail::after, #new_modmail.havemail::after, #new_modmail.nohavemail::after {
     /* content */
     padding: 8px 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
-  #modmail.havemail:hover::before, #modmail.havemail:hover::after, #modmail.nohavemail:hover::before, #modmail.nohavemail:hover::after {
+  #modmail.havemail:hover::before, #modmail.havemail:hover::after, #modmail.nohavemail:hover::before, #modmail.nohavemail:hover::after, #new_modmail.havemail:hover::before, #new_modmail.havemail:hover::after, #new_modmail.nohavemail:hover::before, #new_modmail.nohavemail:hover::after {
     display: block; }
-  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after, #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
     left: initial;
     top: 50%;
     right: 110%;
     transform: translateY(-50%); }
 
-#modmail.havemail {
+#modmail.havemail, #new_modmail.havemail {
   background-image: url(%%spritesheet%%);
   background-position: -131px -425px;
   width: 25px;
@@ -309,6 +309,7 @@
 
 #chat + .separator,
 #modmail + .separator,
+#new_modmail + .separator,
 .user + .separator {
   display: none; }
 
