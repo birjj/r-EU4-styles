@@ -1,7 +1,6 @@
 /**
  * === HEADER ===
  */
-/* TODO: resize the image in PS instead */
 #header-img {
   width: 114px;
   height: 114px; }
@@ -281,7 +280,51 @@
     right: 110%;
     transform: translateY(-50%); }
 
-#modmail.havemail, #modmail.nohavemail, #new_modmail.havemail, #new_modmail.nohavemail {
+#new_modmail.havemail, #new_modmail.nohavemail {
+  position: absolute;
+  overflow: visible;
+  /** ::before is background, ::after is content */
+  /* display when hovering */
+  /** place them to the left */
+  background-image: url(%%spritesheet%%);
+  background-position: -131px -400px;
+  width: 25px;
+  height: 25px;
+  right: 53px;
+  top: 42px;
+  margin: 0; }
+  #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
+    display: none;
+    content: "New modmail";
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-indent: initial;
+    white-space: nowrap;
+    z-index: 999;
+    pointer-events: none; }
+  #new_modmail.havemail::before, #new_modmail.nohavemail::before {
+    /* background */
+    border: 16px solid transparent;
+    border-image: url(%%tooltip-border%%) 16 16 fill repeat;
+    color: transparent;
+    line-height: 0; }
+  #new_modmail.havemail::after, #new_modmail.nohavemail::after {
+    /* content */
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  #new_modmail.havemail:hover::before, #new_modmail.havemail:hover::after, #new_modmail.nohavemail:hover::before, #new_modmail.nohavemail:hover::after {
+    display: block; }
+  #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
+    left: initial;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%); }
+
+#modmail.havemail, #modmail.nohavemail {
   position: absolute;
   overflow: visible;
   /** ::before is background, ::after is content */
@@ -294,7 +337,7 @@
   right: 30px;
   top: 60px;
   margin: 0; }
-  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after, #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
     display: none;
     content: "Modmail";
     font-size: 12px;
@@ -307,19 +350,19 @@
     white-space: nowrap;
     z-index: 999;
     pointer-events: none; }
-  #modmail.havemail::before, #modmail.nohavemail::before, #new_modmail.havemail::before, #new_modmail.nohavemail::before {
+  #modmail.havemail::before, #modmail.nohavemail::before {
     /* background */
     border: 16px solid transparent;
     border-image: url(%%tooltip-border%%) 16 16 fill repeat;
     color: transparent;
     line-height: 0; }
-  #modmail.havemail::after, #modmail.nohavemail::after, #new_modmail.havemail::after, #new_modmail.nohavemail::after {
+  #modmail.havemail::after, #modmail.nohavemail::after {
     /* content */
     padding: 8px 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
-  #modmail.havemail:hover::before, #modmail.havemail:hover::after, #modmail.nohavemail:hover::before, #modmail.nohavemail:hover::after, #new_modmail.havemail:hover::before, #new_modmail.havemail:hover::after, #new_modmail.nohavemail:hover::before, #new_modmail.nohavemail:hover::after {
+  #modmail.havemail:hover::before, #modmail.havemail:hover::after, #modmail.nohavemail:hover::before, #modmail.nohavemail:hover::after {
     display: block; }
-  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after, #new_modmail.havemail::before, #new_modmail.havemail::after, #new_modmail.nohavemail::before, #new_modmail.nohavemail::after {
+  #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
     left: initial;
     top: 50%;
     right: 110%;

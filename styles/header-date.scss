@@ -133,7 +133,14 @@
     top: 42px;
     margin: 0;
 }
-#modmail.havemail, #modmail.nohavemail, #new_modmail.havemail, #new_modmail.nohavemail {
+#new_modmail.havemail, #new_modmail.nohavemail {
+    @include date-icon("New modmail");
+    @include sprite("btn_chat");
+    right: 53px;
+    top: 42px;
+    margin: 0;
+}
+#modmail.havemail, #modmail.nohavemail {
     @include date-icon("Modmail");
     @include sprite("btn_chat");
     right: 30px;
