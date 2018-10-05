@@ -31,7 +31,7 @@
         transform: translate(0,0) rotate(10deg);
         transition: transform 1.25s linear;
     }
-    animation: easter-egg 3s both;
+    animation: easter-egg 4s both;
 
     @keyframes easter-egg {
         0% { opacity: 0; }
