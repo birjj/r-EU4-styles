@@ -1,3 +1,5 @@
+@import "_spritesheet";
+
 .side h1 {
     display: flex !important;
     width: 100%;
@@ -15,13 +17,11 @@
     z-index: 1;
 }
 .side h1::after {
+    @include sprite("banner_green");
     content: "";
     position: absolute;
     left: 0; right: 0;
     top: -8px;
-    height: 72px;
-    background-image: url(%%province-banner%%);
-    background-position: 50%;
     z-index: -1;
     pointer-events: none;
 }

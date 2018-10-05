@@ -1,3 +1,5 @@
+@import "_spritesheet";
+
 form.toggle,
 #remember-me {
     label {
@@ -5,19 +7,16 @@ form.toggle,
         justify-content: center;
         align-items: center;
         &::before {
+            @include sprite("checkbox_off");
             content: "";
             display: inline-block;
-            width: 24px;
-            height: 24px;
             margin-right: 0.5em;
-            background: url(%%checkbox-gold-32%%);
-            background-size: 48px 24px;
         }
     }
     
     input[type="checkbox"] { display: none; }
     input[type="checkbox"]:checked ~ label::before {
-        background-position: 24px 0;
+        @include sprite("checkbox_on");
     }
 }
 form.toggle label { width: 100%; }

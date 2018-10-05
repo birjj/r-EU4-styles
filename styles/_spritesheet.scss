@@ -1,0 +1,42 @@
+$spritesheet_boundaries: (
+    /* name: (x, y, w, h) */
+    eu4_logo: (0, 0, 320, 90),
+
+    banner_red: (0, 90, 300, 64),
+    banner_green: (0, 154, 300, 73),
+
+    btn_big: (0, 226, 270, 58),
+    btn_big_active: (0, 284, 270, 58),
+    btn_big_hover: (0, 342, 270, 58),
+
+    date_right: (0, 400, 131, 97),
+
+    btn_chat: (131, 400, 25, 25),
+    btn_chat_red: (131, 425, 25, 25),
+    btn_inbox: (156, 400, 25, 25),
+    btn_inbox_red: (156, 425, 25, 25),
+    btn_logout: (181, 400, 25, 25),
+    indicator_green: (181, 425, 15, 15),
+
+    checkbox_off: (206, 400, 24, 24),
+    checkbox_on: (230, 400, 24, 24),
+
+    tab_discord: (270, 226, 40, 36),
+    tab_twitch: (270, 262, 40, 36),
+    tab_wiki: (270, 298, 40, 36),
+    tab_paradox: (270, 334, 40, 36),
+    tab_paradoxreddit: (270, 370, 40, 36),
+    tab_teamspeak: (270, 406, 40, 36)
+);
+
+@mixin sprite($name) {
+    @if (map-has-key($spritesheet_boundaries, $name)) {
+        $coords: map-get($spritesheet_boundaries, $name);
+        background-image: url(%%spritesheet%%);
+        background-position: #{-(nth($coords, 1) * 1px)} #{-(nth($coords, 2) * 1px)};
+        width: nth($coords, 3) * 1px;
+        height: nth($coords, 4) * 1px;
+    } @else {
+        @error "Attempted to get unknown sprite `#{$name}`.";
+    }
+}

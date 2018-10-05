@@ -1,3 +1,5 @@
+@import "_spritesheet";
+
 /* top right */
 #header-bottom-right {
     background: none;
@@ -15,20 +17,12 @@
     bottom: 0;
     z-index: -1;
 }
-#header-bottom-right::before {
-    width: 131px;
-    height: 97px;
+#header-bottom-right::before { /* right */
+    @include sprite("date_right");
     left: initial;
     bottom: initial;
-    background-image:
-        url(%%date-timer%%),
-        url(%%date-right%%);
-    background-repeat: no-repeat;
-    background-position:
-        74px 13px,
-        center;
 }
-#header-bottom-right .user {
+#header-bottom-right .user { /* top left */
     position: relative;
     display: block;
     margin-bottom: 15px;
@@ -49,7 +43,7 @@
     }
 }
 .res-navTop #header-bottom-right .user { margin-bottom: 15px; }
-#header-bottom-right .flat-list { /* preferences */
+#header-bottom-right .flat-list /* preferences */ { /* bottom left */
     position: relative;
     &::before {
         content: "";
@@ -85,8 +79,6 @@
 
 @mixin date-icon($tooltip) {
     position: absolute;
-    width: 25px;
-    height: 25px;
     overflow: visible;
 
     @include tooltip($tooltip);
@@ -102,17 +94,15 @@
 }
 /* mail icon */
 #header-bottom-right a { color: #fff; }
-#mail, #chat, #modmail { font-size: 0px; }
+#mail, #chat, #modmail { font-size: 0px; background-size: initial; }
 #mail, #mail.havemail {
     @include date-icon("Inbox");
+    @include sprite("btn_inbox_red");
     right: 63px;
     top: 15px;
-    background-image: url(%%date-btn-red-mail%%);
-    background-position: 0px 0px;
 }
 #mail.nohavemail {
-    background-image: url(%%date-btn-mail%%);
-    background-position: 0px;
+    @include sprite("btn_inbox");
 }
 #mail + .separator, #mail + .message-count + .separator { display: none; }
 #header-bottom-right #mail + .message-count {
@@ -127,24 +117,20 @@
 /* chat icon, replaced by modmail for mods */
 #chat {
     @include date-icon("Chat");
+    @include sprite("btn_chat");
     right: 53px;
     top: 42px;
-    background-image: url(%%date-btn-chat%%);
-    background-position: 0px 0px;
-    background-size: 100%;
     margin: 0;
 }
 #modmail.havemail, #modmail.nohavemail {
     @include date-icon("Modmail");
+    @include sprite("btn_chat");
     right: 30px;
     top: 60px;
-    background-image: url(%%date-btn-chat%%);
-    background-position: 0px 0px;
-    background-size: 100%;
     margin: 0;
 }
 #modmail.havemail {
-    background-image: url(%%date-btn-red-chat%%);
+    @include sprite("btn_chat_red");
 }
 #chat + .separator,
 #modmail + .separator,
@@ -153,11 +139,11 @@
 /* logout icon */
 #header-bottom-right .logout a {
     @include date-icon("Logout");
+    @include sprite("btn_logout");
     display: inline-block;
     font-size: 0px;
     right: 2px;
     top: 67px;
-    background-image: url(%%date-btn-logout%%);
 }
 #header-bottom-right > .separator:nth-last-child(2) { display: none; }
 #header-bottom-right > #openRESPrefs:last-child { margin-left: 1em; }

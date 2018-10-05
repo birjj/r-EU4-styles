@@ -1,4 +1,5 @@
 @import "./_includes.scss";
+@import "_spritesheet";
 
 /* TODO: resize the image in PS instead */
 #header-img {
@@ -8,21 +9,21 @@
 
 #header {
     background:
-    linear-gradient(
-    90deg,
-    rgba(#000, 0.25),
-    rgba(#000, 0) 33%,
-    rgba(#000, 0) 66%,
-    rgba(#000, 0.25)
-    ) 100% 100%,
-    linear-gradient(
-    90deg,
-    rgba(#fff, 0),
-    rgba(#fff, 0.05) 33%,
-    rgba(#fff, 0.05) 66%,
-    rgba(#fff, 0)
-    ) 100% 100%,
-    url(%%tileable-bg-big%%);
+        linear-gradient(
+            90deg,
+            rgba(#000, 0.25),
+            rgba(#000, 0) 33%,
+            rgba(#000, 0) 66%,
+            rgba(#000, 0.25)
+        ) 100% 100%,
+        linear-gradient(
+            90deg,
+            rgba(#fff, 0),
+            rgba(#fff, 0.05) 33%,
+            rgba(#fff, 0.05) 66%,
+            rgba(#fff, 0)
+        ) 100% 100%,
+        url(%%tileable-bg-big%%);
     @include gold-border(0 0 6px 0);
     
     .tabmenu li a {
@@ -66,17 +67,12 @@
 
 #header-bottom-left { position: relative; }
 #header .redditname {
+    @include sprite("eu4_logo");
     font-size: 0;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%) translateY(4px);
-    /* TODO: resize the image in PS instead */
-    width: 640px * 0.5;
-    height: 180px * 0.5;
-    background-image: url(%%Eu4-logo%%);
-    background-size: 100% 100%;
-    
     a {
         display: block;
         width: 100%;

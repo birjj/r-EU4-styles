@@ -1,5 +1,6 @@
 @import "./_includes.scss";
 @import "./buttons.scss";
+@import "_spritesheet";
 
 /* search */
 #search { padding: 2em 2em 1em; }
@@ -123,27 +124,23 @@
 
 /* subscriber counts */
 .subscribers, .users-online {
-    height: 64px;
+    @include sprite("banner_red");
     display: block;
     padding: 14px 96px 0 24px;
     box-sizing: border-box;
-    background-image: url(%%combat-banner%%);
-    background-position: top right;
     font-weight: 700;
     font-size: 13px;
 }
 .users-online {
+    $banner_coords: map-get($spritesheet_boundaries, "banner_red");
     margin-right: 16px;
     padding-left: 6px;
+    background-position: -(nth($banner_coords, 1) * 1px + 16px) (-(nth($banner_coords, 2) * 1px));
     
     & > *,
     &::before { vertical-align: middle; }
     &::before {
-        background-image: url(%%online-indicator%%);
-        background-size: 100%;
-        background-position: 0 0;
-        width: 15px;
-        height: 15px;
+        @include sprite("indicator_green");
         margin-right: 4px;
         float: none;
         display: inline-block;

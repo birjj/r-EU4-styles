@@ -1,4 +1,5 @@
 @import "./_includes.scss";
+@import "_spritesheet";
 
 .side {
     position: relative;
@@ -11,36 +12,31 @@
     
     a {
         @include tooltip("Livestreams");
+        @include sprite("tab_twitch");
         display: inline-block;
-        width: 40px;
-        height: 36px;
-        background-image: url(%%icon-twitch%%), url(%%tab-big%%);
         font-size: 0px;
-        background-size: 22px, 100% 100%;
-        background-repeat: no-repeat;
-        background-position: center 10px, center;
         position: relative;
         margin-right: -6px;
         
         &[href="/r/paradoxplaza"] {
             @include tooltip("/r/Paradoxplaza");
-            background-image: url(%%icon-paradoxreddit%%), url(%%tab-big%%);
+            @include sprite("tab_paradoxreddit");
         }
         &[href="http://www.eu4wiki.com/"] {
             @include tooltip("EU4 Wiki");
-            background-image: url(%%icon-wiki%%), url(%%tab-big%%);
+            @include sprite("tab_wiki");
         }
         &[href^="https://forum.paradoxplaza.com/forum/"] {
             @include tooltip("Paradox Forums");
-            background-image: url(%%icon-forum%%), url(%%tab-big%%);
+            @include sprite("tab_paradox");
         }
         &[href="/r/paradoxplaza/wiki/teamspeak"] {
             @include tooltip("Teamspeak");
-            background-image: url(%%icon-teamspeak%%), url(%%tab-big%%);
+            @include sprite("tab_teamspeak");
         }
         &[href^="http://www.discord.gg/"] {
             @include tooltip("Discord");
-            background-image: url(%%icon-discord%%), url(%%tab-big%%);
+            @include sprite("tab_discord");
         }
     }
 }

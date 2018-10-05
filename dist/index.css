@@ -50,16 +50,15 @@
   position: relative; }
 
 #header .redditname {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px 0px;
+  width: 320px;
+  height: 90px;
   font-size: 0;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) translateY(4px);
-  /* TODO: resize the image in PS instead */
-  width: 320px;
-  height: 90px;
-  background-image: url(%%Eu4-logo%%);
-  background-size: 100% 100%; }
+  transform: translate(-50%, -50%) translateY(4px); }
   #header .redditname a {
     display: block;
     width: 100%;
@@ -83,15 +82,16 @@
   z-index: -1; }
 
 #header-bottom-right::before {
+  /* right */
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -400px;
   width: 131px;
   height: 97px;
   left: initial;
-  bottom: initial;
-  background-image: url(%%date-timer%%), url(%%date-right%%);
-  background-repeat: no-repeat;
-  background-position: 74px 13px, center; }
+  bottom: initial; }
 
 #header-bottom-right .user {
+  /* top left */
   position: relative;
   display: block;
   margin-bottom: 15px;
@@ -113,7 +113,7 @@
   margin-bottom: 15px; }
 
 #header-bottom-right .flat-list {
-  /* preferences */
+  /* bottom left */
   position: relative; }
   #header-bottom-right .flat-list::before {
     content: "";
@@ -149,20 +149,21 @@
   color: #fff; }
 
 #mail, #chat, #modmail {
-  font-size: 0px; }
+  font-size: 0px;
+  background-size: initial; }
 
 #mail, #mail.havemail {
   position: absolute;
-  width: 25px;
-  height: 25px;
   overflow: visible;
   /** ::before is background, ::after is content */
   /* display when hovering */
   /** place them to the left */
+  background-image: url(%%spritesheet%%);
+  background-position: -156px -425px;
+  width: 25px;
+  height: 25px;
   right: 63px;
-  top: 15px;
-  background-image: url(%%date-btn-red-mail%%);
-  background-position: 0px 0px; }
+  top: 15px; }
   #mail::before, #mail::after, #mail.havemail::before, #mail.havemail::after {
     display: none;
     content: "Inbox";
@@ -195,8 +196,10 @@
     transform: translateY(-50%); }
 
 #mail.nohavemail {
-  background-image: url(%%date-btn-mail%%);
-  background-position: 0px; }
+  background-image: url(%%spritesheet%%);
+  background-position: -156px -400px;
+  width: 25px;
+  height: 25px; }
 
 #mail + .separator, #mail + .message-count + .separator {
   display: none; }
@@ -212,17 +215,16 @@
 /* chat icon, replaced by modmail for mods */
 #chat {
   position: absolute;
-  width: 25px;
-  height: 25px;
   overflow: visible;
   /** ::before is background, ::after is content */
   /* display when hovering */
   /** place them to the left */
+  background-image: url(%%spritesheet%%);
+  background-position: -131px -400px;
+  width: 25px;
+  height: 25px;
   right: 53px;
   top: 42px;
-  background-image: url(%%date-btn-chat%%);
-  background-position: 0px 0px;
-  background-size: 100%;
   margin: 0; }
   #chat::before, #chat::after {
     display: none;
@@ -257,17 +259,16 @@
 
 #modmail.havemail, #modmail.nohavemail {
   position: absolute;
-  width: 25px;
-  height: 25px;
   overflow: visible;
   /** ::before is background, ::after is content */
   /* display when hovering */
   /** place them to the left */
+  background-image: url(%%spritesheet%%);
+  background-position: -131px -400px;
+  width: 25px;
+  height: 25px;
   right: 30px;
   top: 60px;
-  background-image: url(%%date-btn-chat%%);
-  background-position: 0px 0px;
-  background-size: 100%;
   margin: 0; }
   #modmail.havemail::before, #modmail.havemail::after, #modmail.nohavemail::before, #modmail.nohavemail::after {
     display: none;
@@ -301,7 +302,10 @@
     transform: translateY(-50%); }
 
 #modmail.havemail {
-  background-image: url(%%date-btn-red-chat%%); }
+  background-image: url(%%spritesheet%%);
+  background-position: -131px -425px;
+  width: 25px;
+  height: 25px; }
 
 #chat + .separator,
 #modmail + .separator,
@@ -311,17 +315,18 @@
 /* logout icon */
 #header-bottom-right .logout a {
   position: absolute;
-  width: 25px;
-  height: 25px;
   overflow: visible;
   /** ::before is background, ::after is content */
   /* display when hovering */
   /** place them to the left */
+  background-image: url(%%spritesheet%%);
+  background-position: -181px -400px;
+  width: 25px;
+  height: 25px;
   display: inline-block;
   font-size: 0px;
   right: 2px;
-  top: 67px;
-  background-image: url(%%date-btn-logout%%); }
+  top: 67px; }
   #header-bottom-right .logout a::before, #header-bottom-right .logout a::after {
     display: none;
     content: "Logout";
@@ -455,19 +460,24 @@
   margin-bottom: -6px; }
 
 /* -- BUTTONS -- */
+.morelink {
+  height: auto; }
+
 .morelink, .morelink:hover,
 .disabled .morelink, .disabled .morelink:hover {
-  position: relative;
   margin: 0 1em;
   background: none;
   border: none;
-  height: 58px;
   z-index: 1; }
 
 .disabled .morelink {
   opacity: 0.5; }
 
 .morelink a {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -226px;
+  width: 270px;
+  height: 58px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -482,27 +492,18 @@
 .morelink .nub {
   display: none; }
 
-.morelink a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-style: solid;
-  border-width: 26px 32px 32px;
-  border-image: url(%%frontend-continue-button%%) 26 32 32 repeat;
-  z-index: -1;
-  /* used to make sure that the images are loaded before the interactions begin */
-  background-image: url(%%frontend-continue-button-hovered%%), url(%%frontend-continue-button-clicked%%);
-  background-size: 0px, 0px; }
+.morelink a:hover,
+.morelink a:focus {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -342px;
+  width: 270px;
+  height: 58px; }
 
-.morelink:hover a::before,
-.morelink:focus a::before {
-  border-image-source: url(%%frontend-continue-button-hovered%%); }
-
-.morelink:active a::before {
-  border-image-source: url(%%frontend-continue-button-clicked%%); }
+.morelink a:active {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -284px;
+  width: 270px;
+  height: 58px; }
 
 /* -- CHECKBOXES -- */
 form.toggle label,
@@ -512,13 +513,13 @@ form.toggle label,
   align-items: center; }
   form.toggle label::before,
   #remember-me label::before {
-    content: "";
-    display: inline-block;
+    background-image: url(%%spritesheet%%);
+    background-position: -206px -400px;
     width: 24px;
     height: 24px;
-    margin-right: 0.5em;
-    background: url(%%checkbox-gold-32%%);
-    background-size: 48px 24px; }
+    content: "";
+    display: inline-block;
+    margin-right: 0.5em; }
 
 form.toggle input[type="checkbox"],
 #remember-me input[type="checkbox"] {
@@ -526,7 +527,10 @@ form.toggle input[type="checkbox"],
 
 form.toggle input[type="checkbox"]:checked ~ label::before,
 #remember-me input[type="checkbox"]:checked ~ label::before {
-  background-position: 24px 0; }
+  background-image: url(%%spritesheet%%);
+  background-position: -230px -400px;
+  width: 24px;
+  height: 24px; }
 
 form.toggle label {
   width: 100%; }
@@ -549,14 +553,15 @@ form.toggle label {
   z-index: 1; }
 
 .side h1::after {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -154px;
+  width: 300px;
+  height: 73px;
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: -8px;
-  height: 72px;
-  background-image: url(%%province-banner%%);
-  background-position: 50%;
   z-index: -1;
   pointer-events: none; }
 
@@ -567,19 +572,24 @@ form.toggle label {
   display: none; }
 
 /* -- SIDEBAR COMPONENTS -- */
+.morelink {
+  height: auto; }
+
 .morelink, .morelink:hover,
 .disabled .morelink, .disabled .morelink:hover {
-  position: relative;
   margin: 0 1em;
   background: none;
   border: none;
-  height: 58px;
   z-index: 1; }
 
 .disabled .morelink {
   opacity: 0.5; }
 
 .morelink a {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -226px;
+  width: 270px;
+  height: 58px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -594,27 +604,18 @@ form.toggle label {
 .morelink .nub {
   display: none; }
 
-.morelink a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-style: solid;
-  border-width: 26px 32px 32px;
-  border-image: url(%%frontend-continue-button%%) 26 32 32 repeat;
-  z-index: -1;
-  /* used to make sure that the images are loaded before the interactions begin */
-  background-image: url(%%frontend-continue-button-hovered%%), url(%%frontend-continue-button-clicked%%);
-  background-size: 0px, 0px; }
+.morelink a:hover,
+.morelink a:focus {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -342px;
+  width: 270px;
+  height: 58px; }
 
-.morelink:hover a::before,
-.morelink:focus a::before {
-  border-image-source: url(%%frontend-continue-button-hovered%%); }
-
-.morelink:active a::before {
-  border-image-source: url(%%frontend-continue-button-clicked%%); }
+.morelink a:active {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -284px;
+  width: 270px;
+  height: 58px; }
 
 /* search */
 #search {
@@ -744,24 +745,25 @@ form.toggle label {
 
 /* subscriber counts */
 .subscribers, .users-online {
+  background-image: url(%%spritesheet%%);
+  background-position: 0px -90px;
+  width: 300px;
   height: 64px;
   display: block;
   padding: 14px 96px 0 24px;
   box-sizing: border-box;
-  background-image: url(%%combat-banner%%);
-  background-position: top right;
   font-weight: 700;
   font-size: 13px; }
 
 .users-online {
   margin-right: 16px;
-  padding-left: 6px; }
+  padding-left: 6px;
+  background-position: -16px -90px; }
   .users-online > *, .users-online::before {
     vertical-align: middle; }
   .users-online::before {
-    background-image: url(%%online-indicator%%);
-    background-size: 100%;
-    background-position: 0 0;
+    background-image: url(%%spritesheet%%);
+    background-position: -181px -425px;
     width: 15px;
     height: 15px;
     margin-right: 4px;
@@ -813,14 +815,12 @@ form.toggle label {
   .side .md blockquote:nth-child(2) a {
     /** ::before is background, ::after is content */
     /* display when hovering */
-    display: inline-block;
+    background-image: url(%%spritesheet%%);
+    background-position: -270px -262px;
     width: 40px;
     height: 36px;
-    background-image: url(%%icon-twitch%%), url(%%tab-big%%);
+    display: inline-block;
     font-size: 0px;
-    background-size: 22px, 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center 10px, center;
     position: relative;
     margin-right: -6px; }
     .side .md blockquote:nth-child(2) a::before, .side .md blockquote:nth-child(2) a::after {
@@ -851,7 +851,10 @@ form.toggle label {
     .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
-      background-image: url(%%icon-paradoxreddit%%), url(%%tab-big%%); }
+      background-image: url(%%spritesheet%%);
+      background-position: -270px -370px;
+      width: 40px;
+      height: 36px; }
       .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza"]::after {
         display: none;
         content: "/r/Paradoxplaza";
@@ -880,7 +883,10 @@ form.toggle label {
     .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
-      background-image: url(%%icon-wiki%%), url(%%tab-big%%); }
+      background-image: url(%%spritesheet%%);
+      background-position: -270px -298px;
+      width: 40px;
+      height: 36px; }
       .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::before, .side .md blockquote:nth-child(2) a[href="http://www.eu4wiki.com/"]::after {
         display: none;
         content: "EU4 Wiki";
@@ -909,7 +915,10 @@ form.toggle label {
     .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
-      background-image: url(%%icon-forum%%), url(%%tab-big%%); }
+      background-image: url(%%spritesheet%%);
+      background-position: -270px -334px;
+      width: 40px;
+      height: 36px; }
       .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::before, .side .md blockquote:nth-child(2) a[href^="https://forum.paradoxplaza.com/forum/"]::after {
         display: none;
         content: "Paradox Forums";
@@ -938,7 +947,10 @@ form.toggle label {
     .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
-      background-image: url(%%icon-teamspeak%%), url(%%tab-big%%); }
+      background-image: url(%%spritesheet%%);
+      background-position: -270px -406px;
+      width: 40px;
+      height: 36px; }
       .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::before, .side .md blockquote:nth-child(2) a[href="/r/paradoxplaza/wiki/teamspeak"]::after {
         display: none;
         content: "Teamspeak";
@@ -967,7 +979,10 @@ form.toggle label {
     .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"] {
       /** ::before is background, ::after is content */
       /* display when hovering */
-      background-image: url(%%icon-discord%%), url(%%tab-big%%); }
+      background-image: url(%%spritesheet%%);
+      background-position: -270px -226px;
+      width: 40px;
+      height: 36px; }
       .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::before, .side .md blockquote:nth-child(2) a[href^="http://www.discord.gg/"]::after {
         display: none;
         content: "Discord";

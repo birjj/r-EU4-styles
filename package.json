@@ -12,5 +12,6 @@
     "concurrently": "^4.0.1",
     "node-sass": "^4.9.3",
     "snoowrap": "^1.15.2"
-  }
+  },
+  "devDependencies": {}
 }
