@@ -19,16 +19,28 @@
         top: 50%;
         transform: translate(-50%,-50%);
     }
+    &::after {
+        content: "";
+        position: absolute;
+        background-image: url(%%comet-event%%);
+        width: 213px;
+        height: 96px;
+        background-position: -218px -512px;
+        right: 125%;
+        bottom: 125%;
+        transform: translate(0,0) rotate(5deg);
+        transition: transform 1.25s linear;
+    }
     animation: easter-egg 10s both;
 
     @keyframes easter-egg {
         0% { opacity: 0; }
         3% { opacity: 1; }
         90% { opacity: 1; }
-        100% { opacity: 0; display: block; }
+        100% { opacity: 0; display: block; pointer-events: initial; }
         100% { display: none; pointer-events: none; }
     }
 }
-#baconBit.makeitrain::before {
-    transform: translate(-50%,-50%) scale(1);
+#baconBit.makeitrain::after {
+    transform: translate(150vw, 150vh) rotate(5deg);
 }
