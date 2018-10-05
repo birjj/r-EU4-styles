@@ -473,7 +473,7 @@
 .disabled .morelink {
   opacity: 0.5; }
 
-.morelink a {
+.side .morelink a {
   background-image: url(%%spritesheet%%);
   background-position: 0px -226px;
   width: 270px;
@@ -482,7 +482,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   line-height: 1.3em; }
 
@@ -585,7 +585,7 @@ form.toggle label {
 .disabled .morelink {
   opacity: 0.5; }
 
-.morelink a {
+.side .morelink a {
   background-image: url(%%spritesheet%%);
   background-position: 0px -226px;
   width: 270px;
@@ -594,7 +594,7 @@ form.toggle label {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   line-height: 1.3em; }
 
@@ -1063,4 +1063,22 @@ a[href$="/spoiler"][title]::before {
  * === ADMIN TOOLS ===
  */
 .side .icon-menu a {
+  background: none; }
+
+/**
+ * === FIXES ===
+ */
+.res-nightmode .side .titlebox,
+.res-nightmode .side .login-form,
+.res-nightmode .side .sidebox,
+.res-nightmode .side .morelink,
+.res-nightmode .side .leavemoderator,
+.res-nightmode .side .titlebox form.flairtoggle,
+.res-nightmode .side .md ul,
+.res-nightmode .side .usertext .md ol,
+.res-nightmode .side .content {
+  background: none;
+  border: none; }
+
+.res-nightmode #header-bottom-right {
   background: none; }

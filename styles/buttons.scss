@@ -9,13 +9,13 @@
     z-index: 1;
 }
 .disabled .morelink { opacity: 0.5; }
-.morelink a {
+.side .morelink a {
     @include sprite("btn_big");
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #fff !important;
     font-size: 14px;
     line-height: 1.3em;
 }
