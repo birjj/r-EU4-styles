@@ -43,8 +43,13 @@
     }
 }
 .res-navTop #header-bottom-right .user { margin-bottom: 15px; }
-$firstBottomSelector: "#header-bottom-right .user + *:not(.separator)," ;
-#header-bottom-right .flat-list { /* bottom left */
+
+/* this select the left-most element in the lower row of the header-date */
+#header-bottom-right .user + *:not(.separator),
+#header-bottom-right .user + .separator + *:not(#mail),
+#header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail),
+#header-bottom-right #modmail + .separator + *:not(#new_modmail),
+#header-bottom-right #new_modmail + .separator + * { /* bottom left */
     position: relative;
     &::before {
         content: "";
@@ -58,24 +63,29 @@ $firstBottomSelector: "#header-bottom-right .user + *:not(.separator)," ;
         border-image: url(%%date-left-bot%%) 8 0 46 42 fill repeat stretch;
         z-index: -1;
     }
+
+    ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail) { /* everything afterwards */
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -7px;
+            right: 0;
+            bottom: -47px;
+            left: 0 !important;
+            border-style: solid;
+            border-width: 8px 0 46px 0 !important;
+            border-image: url(%%date-left-bot%%) 8 0 46 42 fill repeat;
+            z-index: -1;
+        }
+        &#openRESPrefs::before {
+            bottom: -45px;
+        }
+    }
 }
-#header-bottom-right .flat-list ~ *:not(.logout) { /* everything after preferences */
-    position: relative;
-    &::before {
-        content: "";
-        position: absolute;
-        top: -7px;
-        right: 0;
-        bottom: -47px;
-        left: 0;
-        border-style: solid;
-        border-width: 8px 0 46px 0;
-        border-image: url(%%date-left-bot%%) 8 0 46 0 fill repeat;
-        z-index: -1;
-    }
-    &#openRESPrefs::before {
-        bottom: -45px;
-    }
+#header-bottom-right .separator {
+    padding: 0 .7ex;
+    margin: 0;
 }
 
 @mixin date-icon($tooltip) {

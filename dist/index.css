@@ -112,10 +112,19 @@
 .res-navTop #header-bottom-right .user {
   margin-bottom: 15px; }
 
-#header-bottom-right .flat-list {
+/* this select the left-most element in the lower row of the header-date */
+#header-bottom-right .user + *:not(.separator),
+#header-bottom-right .user + .separator + *:not(#mail),
+#header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail),
+#header-bottom-right #modmail + .separator + *:not(#new_modmail),
+#header-bottom-right #new_modmail + .separator + * {
   /* bottom left */
   position: relative; }
-  #header-bottom-right .flat-list::before {
+  #header-bottom-right .user + *:not(.separator)::before,
+  #header-bottom-right .user + .separator + *:not(#mail)::before,
+  #header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail)::before,
+  #header-bottom-right #modmail + .separator + *:not(#new_modmail)::before,
+  #header-bottom-right #new_modmail + .separator + *::before {
     content: "";
     position: absolute;
     top: -7px;
@@ -126,23 +135,38 @@
     border-width: 8px 0 46px 42px;
     border-image: url(%%date-left-bot%%) 8 0 46 42 fill repeat stretch;
     z-index: -1; }
+  #header-bottom-right .user + *:not(.separator) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail),
+  #header-bottom-right .user + .separator + *:not(#mail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail),
+  #header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail),
+  #header-bottom-right #modmail + .separator + *:not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail),
+  #header-bottom-right #new_modmail + .separator + * ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail) {
+    /* everything afterwards */
+    position: relative; }
+    #header-bottom-right .user + *:not(.separator) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)::before,
+    #header-bottom-right .user + .separator + *:not(#mail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)::before,
+    #header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)::before,
+    #header-bottom-right #modmail + .separator + *:not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)::before,
+    #header-bottom-right #new_modmail + .separator + * ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      right: 0;
+      bottom: -47px;
+      left: 0 !important;
+      border-style: solid;
+      border-width: 8px 0 46px 0 !important;
+      border-image: url(%%date-left-bot%%) 8 0 46 42 fill repeat;
+      z-index: -1; }
+    #header-bottom-right .user + *:not(.separator) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)#openRESPrefs::before,
+    #header-bottom-right .user + .separator + *:not(#mail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)#openRESPrefs::before,
+    #header-bottom-right #mail + .separator + *:not(#chat):not(#modmail):not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)#openRESPrefs::before,
+    #header-bottom-right #modmail + .separator + *:not(#new_modmail) ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)#openRESPrefs::before,
+    #header-bottom-right #new_modmail + .separator + * ~ *:not(.logout):not(#mail):not(#chat):not(#modmail):not(#new_modmail)#openRESPrefs::before {
+      bottom: -45px; }
 
-#header-bottom-right .flat-list ~ *:not(.logout) {
-  /* everything after preferences */
-  position: relative; }
-  #header-bottom-right .flat-list ~ *:not(.logout)::before {
-    content: "";
-    position: absolute;
-    top: -7px;
-    right: 0;
-    bottom: -47px;
-    left: 0;
-    border-style: solid;
-    border-width: 8px 0 46px 0;
-    border-image: url(%%date-left-bot%%) 8 0 46 0 fill repeat;
-    z-index: -1; }
-  #header-bottom-right .flat-list ~ *:not(.logout)#openRESPrefs::before {
-    bottom: -45px; }
+#header-bottom-right .separator {
+  padding: 0 .7ex;
+  margin: 0; }
 
 /* mail icon */
 #header-bottom-right a {
