@@ -1,0 +1,34 @@
+#baconBit, #baconBit.makeitrain {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: initial;
+    height: initial;
+    background: rgba(#000, 0.5);
+    transform: none;
+    transition: none;
+
+    &::before {
+        content: "";
+        background-image: url(%%comet-event%%);
+        width: 650px;
+        height: 512px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    animation: easter-egg 10s both;
+
+    @keyframes easter-egg {
+        0% { opacity: 0; }
+        3% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { opacity: 0; display: block; }
+        100% { display: none; pointer-events: none; }
+    }
+}
+#baconBit.makeitrain::before {
+    transform: translate(-50%,-50%) scale(1);
+}
