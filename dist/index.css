@@ -629,7 +629,7 @@ form.toggle label {
   position: absolute;
   left: 0;
   right: 0;
-  top: -8px;
+  top: -12px;
   z-index: -1;
   pointer-events: none; }
 
@@ -1126,6 +1126,69 @@ a[href$="/spoiler"]::before {
 
 a[href$="/spoiler"][title]::before {
   content: attr(title) " Spoiler"; }
+
+/* -- FLAIRS -- */
+.flair-moderator, .flair-winner, .flair-pink, .flair-novelty, .flair-modder, .flair-pinkmod, .flair-paradox, .flair-meneth {
+  color: #FFFFFF;
+  border: none; }
+
+.flair-moderator {
+  background-color: #64ab64; }
+
+body.res-nightmode .flair-moderator {
+  background-color: #4c7511; }
+
+.flair-winner {
+  background-color: #DD0303; }
+
+body.res-nightmode .flair-winner {
+  background-color: #800517; }
+
+.flair-pink {
+  background-color: #FF69B4; }
+
+body.res-nightmode .flair-pink {
+  background-color: #FF69B4; }
+
+.flair-novelty {
+  background-color: #FF69B4; }
+
+body.res-nightmode .flair-novelty {
+  background-color: #FF69B4; }
+
+.flair-modder {
+  background-color: #E26900; }
+
+body.res-nightmode .flair-modder {
+  background-color: #E26900; }
+
+.flair-pinkmod {
+  background-color: #64ab64;
+  border-left: 5px solid #FF69B4; }
+
+body.res-nightmode .flair-pinkmod {
+  background-color: #64ab64;
+  border-left: 5px solid #FF69B4; }
+
+.flair-pinkmod:hover:after {
+  content: " (Not up for reelection)"; }
+
+.flair-paradox {
+  background-color: #437ece; }
+
+body.res-nightmode .flair-paradox {
+  background-color: #36619a; }
+
+.flair-meneth {
+  background-color: #437ece;
+  border-left: 5px solid #64ab64; }
+
+body.res-nightmode .flair-meneth {
+  background-color: #36619a;
+  border-left: 5px solid #4c7511; }
+
+.flair-meneth:hover:after {
+  content: " (Works for Paradox)"; }
 
 /**
  * === ADMIN TOOLS ===
