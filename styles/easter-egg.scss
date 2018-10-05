@@ -28,7 +28,7 @@
         background-position: -218px -512px;
         right: 125%;
         bottom: 125%;
-        transform: translate(0,0) rotate(5deg);
+        transform: translate(0,0) rotate(10deg);
         transition: transform 1.25s linear;
     }
     animation: easter-egg 10s both;
@@ -42,5 +42,5 @@
     }
 }
 #baconBit.makeitrain::after {
-    transform: translate(150vw, 150vh) rotate(5deg);
+    transform: translate(150vw, 150vh) rotate(10deg);
 }

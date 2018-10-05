@@ -1244,7 +1244,7 @@ body.res-nightmode .flair-meneth {
     background-position: -218px -512px;
     right: 125%;
     bottom: 125%;
-    transform: translate(0, 0) rotate(5deg);
+    transform: translate(0, 0) rotate(10deg);
     transition: transform 1.25s linear; }
 
 @keyframes easter-egg {
@@ -1263,4 +1263,4 @@ body.res-nightmode .flair-meneth {
     pointer-events: none; } }
 
 #baconBit.makeitrain::after {
-  transform: translate(150vw, 150vh) rotate(5deg); }
+  transform: translate(150vw, 150vh) rotate(10deg); }
