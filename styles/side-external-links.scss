@@ -30,7 +30,7 @@
             @include tooltip("Paradox Forums");
             @include sprite("tab_paradox");
         }
-        &[href="/r/paradoxplaza/wiki/teamspeak"] {
+        &[href*="/r/paradoxplaza/wiki/teamspeak"] {
             @include tooltip("Teamspeak");
             @include sprite("tab_teamspeak");
         }
